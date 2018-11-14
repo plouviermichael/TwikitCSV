@@ -1,0 +1,14 @@
+{
+  "name": "twikit",
+  "description": "A simple application converting csv to json into a html table.",
+  "license": "UNLICENSED",
+  "repository": {
+    "private": false
+  },
+  "main": "server.js",
+  "dependencies": {
+    "csvtojson": "2.0.8",
+    "express": "4.14.1",
+    "multer": "1.4.1"
+  }
+}
