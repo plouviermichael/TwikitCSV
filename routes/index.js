@@ -32,6 +32,7 @@ router.post('/fileUpload', upload.single('csv'), (req, res, next) => {
             res.send(tableHtml);
         })
     }
+    res.send('<html><head></head><body><span>Sorry, you forgot to select a file, please try again <a href="http://localhost:8080">here</a></span></body></html>');
 });
 
 router.get('/csvTester', csvRoute);
