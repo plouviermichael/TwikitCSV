@@ -22,17 +22,18 @@ router.post('/fileUpload', upload.single('csv'), (req, res, next) => {
             let tableHtml = '<html><head></head><body><table>';
             for (let i = 0; i < jsonObj.length; i++) {
                 tableHtml += '<tr>';
-                console.log('row', jsonObj[i]);
-                for (let j = 0; j < Object.keys(jsonObj[i]).length; j++) {
-                    tableHtml += '<td>' + jsonObj[i][Object.keys(jsonObj[i])[j]] + '</td>';
+                let keys = Object.keys(jsonObj[i]);
+                for (let j = 0; j < keys.length; j++) {
+                    tableHtml += '<td>' + jsonObj[i][keys[j]] + '</td>';
                 }
                 tableHtml += '</tr>';
             }
             tableHtml += '</table></body></html>';
             res.send(tableHtml);
         })
+    } else {
+        res.send('<html><head></head><body><span>Sorry, you forgot to select a file, please try again <a href="http://localhost:8080">here</a></span></body></html>');
     }
-    res.send('<html><head></head><body><span>Sorry, you forgot to select a file, please try again <a href="http://localhost:8080">here</a></span></body></html>');
 });
 
 router.get('/csvTester', csvRoute);
